@@ -1,6 +1,17 @@
 
 .root {
     @apply relative;
+    max-height: 100% !important;
+
+    &:hover {
+        & .productBg:before {
+            transform: scale(0.95);
+        }
+
+        & .productImage {
+            transform: scale(1.1);
+        }
+    }
 
     &:nth-child(6n + 1) .productBg {
         @apply bg-violet;
@@ -16,11 +27,15 @@
     }
 }
 
+.productImage {
+    @apply transition-transform duration-500 block;
+}
+
 .productBg {
     @apply absolute inset-0 z-0;
 
     &:before {
-        @apply block w-full h-full;
+        @apply transition-transform duration-500 block w-full h-full bg-repeat-space;
         content: "";
         background-image: url("/product-pattern-bg.svg");
     }
@@ -36,7 +51,7 @@
 }
 
 .productTitle {
-    @apply font-bold;
+    @apply bg-primary font-bold;
     line-height: 2.2em;
 
     & span {
@@ -46,6 +61,6 @@
 }
 
 .productPrice {
-    @apply pb-4 pt-6 py-6 font-semibold text-sm;
+    @apply bg-primary pb-4 pt-2 px-6 font-semibold text-sm;
     letter-spacing: 0.4px;
 }

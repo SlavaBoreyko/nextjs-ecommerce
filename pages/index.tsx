@@ -4,7 +4,7 @@ import getAllProducts from "@framework/product/get-all-products"
 import { getConfig } from "@framework/api/config"
 import { Layout } from "@components/common"
 import { ProductCard } from "@components/product"
-import { Grid } from "@components/ui"
+import { Grid, Hero, Marquee } from "@components/ui"
 
 export async function getStaticProps() {
   const config = getConfig()
@@ -33,6 +33,21 @@ export default function Home({
           />
         )}
       </Grid>
+      <Hero 
+        headline="Cookies, ice cream "
+        description="
+        Description sentence example. He called the station and reported the description of the vehicle. Angry was a good description , she noted. Howie obtained a full description of the man and his vehicle and the license plate number."
+      />
+
+      <Marquee>
+      { products.slice(0,3).map(product => 
+          <ProductCard 
+            key={product.id}
+            variant="slim"
+            product={product}
+          />
+        )}
+      </Marquee>
     </>
   )
 }
