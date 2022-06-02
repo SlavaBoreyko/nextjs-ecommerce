@@ -39,7 +39,7 @@ export default function Home({
         Description sentence example. He called the station and reported the description of the vehicle. Angry was a good description , she noted. Howie obtained a full description of the man and his vehicle and the license plate number."
       />
 
-      <Marquee>
+      <Marquee gradient={false}>
       { products.slice(0,3).map(product => 
           <ProductCard 
             key={product.id}
