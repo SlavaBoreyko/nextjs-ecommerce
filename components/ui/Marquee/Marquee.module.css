@@ -1,6 +1,11 @@
 
 .root {
+    @apply bg-black;
     height: 320px;
+}
+
+.secondary {
+    @apply bg-white;
 }
 
 .container {
@@ -9,4 +14,95 @@
     & > * {
         @apply flex-1 px-16 py-4 relative;
     }
+}
+
+.btnTest {
+    cursor: pointer;
+    text-decoration: none;
+    color: #351435;
+    font-family: sans-serif;
+    font-size: 40px;
+    border: 3px solid #351435;
+    padding: 40px 80px;
+    margin-left: 50px;
+    position: relative;
+    transition: all 2s;
+    overflow: hidden;
+    
+
+    &:before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #351435;
+        z-index: -1;
+        transform: translateX(-100%);
+        transition: all 5s;  
+    }
+
+    &:hover {
+        color: white;
+
+        &:before {
+            transform: translateX(0);
+        }
+    }
+}
+
+.btnWave {
+    cursor: pointer;
+    /* text-decoration: none; */
+    padding: 15px 30px;
+    color: #00aeff;
+    font-family: sans-serif;
+    font-size: 18px;
+    letter-spacing: 3px;
+    border: 3px solid #00aeff;
+    text-transform: uppercase;
+    
+    margin-left: 50px;
+    margin-bottom:100px;
+    position: relative;
+    transition: all 1s;
+    overflow: hidden;
+
+    & .wave {
+        position: absolute;
+        width: 100%;
+        height:100%;
+        left:0;
+        top:calc(100% + 22px);
+        background-color: #00aeff;
+        transition: all 1s;
+        z-index: -10;
+        
+    
+        &:before {
+            content: "";
+            position: absolute;
+            top:-22px;
+            left:0;
+            width:100%;
+            height: 22px;
+            background: url("../../../public/img/wave.png");
+            animation: wavy 0.5s linear infinite;      
+        }
+    }
+
+    &:hover .wave {
+        top: 0;
+    }
+
+    &:hover {
+        color: white;
+    }
+}
+
+
+@keyframes wavy {
+    0% { background-position-x: 0 }
+    100% { background-position-x: 118px; }
 }
