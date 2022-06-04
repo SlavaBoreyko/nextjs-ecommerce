@@ -8,7 +8,9 @@ type FetcherResult<T> = { data: T }
 
 const fetchApi = async <T>({ 
     url, 
-    query }: ApiFetcherOptions
+    query,
+    variables
+}: ApiFetcherOptions
 ): Promise<ApiFetcherResults<T>> => {
     // const url = "http://localhost:4000/graphql"
 
@@ -18,7 +20,8 @@ const fetchApi = async <T>({
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
-            query
+            query,
+            variables
         })
     })
 
