@@ -6,7 +6,7 @@ import {
 } from "@framework/product"
 
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType } from "next"
-import { Container } from "@components/ui"
+import { ProductView } from  "@components/product"
 
 // fetch all of the products slugs
 export const getStaticPaths: GetStaticPaths = async() => {
@@ -41,12 +41,9 @@ export default function ProductSlugPage({
 ) {
 
     return (
-        <div>
-            {product?.name} 
-            {product?.slug} 
-            {product?.description} 
-            {product?.price.currencyCode} 
-        </div>
+        <>
+            { product && <ProductView product={product} /> }
+        </>
     )
 }
 
